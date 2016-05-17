@@ -30,3 +30,14 @@ A Sudoku board has two major parts, the individual cell and the overall board.  
 I've actually tried to code a Sudoku solver before in my own time since I really enjoy the game. One design decision I could have made and which I had tried before (examples included in the solverFunctions folder) would be to use Sudoku strategies to solve the puzzle legitimately instead of making guesses. This actually makes the algorithm faster with easier puzzles since it doesn't ever travel incorrect paths. It's also much better space wise since it doesn't need to create many duplicates of the board. The downside is that for hard boards, the "advanced" Sudoku strategies are required.  It's more difficult to code the advanced strategies and also, at some point having 10+ different solve functions starts to get a little confusing within the code.  Finally that solution is more difficult since it's hard to tell which of the different strategies to run at any given time. Ultimately, if I was going to actually use this project, I think it would be worth having some heuristic that determined whether to use the strategies or whether to just try guessing. I included some examples of the other strategies that I played around with, but I code every possible strategy for time reasons.
 
 There were also some small changes I could have made to improve the runtime complexity.  For instance, when finding the columns/boxes, the board class iterates through all cells searching for the ones with a particular column/box values.  I was able to easily refactor the row finder to be more efficient, so that doesn’t search through every cell.  Every time it checks the validity of the table, it runs through each cell 19 times (9x for the columns, 9x for the boxes and 1x for the rows). I debated having the cells for each column/row/box stored in an inner array, but I thought that would make the clone function much more complicated, and the clone function is an integral piece since for each guess we need to clone the board.   There’s probably a way to calculate exactly which cells should be in a column/box just like I did with the rows, but I didn’t quite get that far ☺
+
+Sample run:
+ruby solve.rb "-,-,-,8,4,-,-,-,9
+-,-,1,-,-,-,-,-,5
+8,-,-,-,2,1,4,6,-
+7,-,8,-,-,-,-,9,-
+-,-,-,-,-,-,-,-,-
+-,5,-,-,-,-,3,-,1
+-,2,4,9,1,-,-,-,7
+9,-,-,-,-,-,5,-,-
+3,-,-,-,8,4,-,-,-"
