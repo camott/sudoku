@@ -37,6 +37,7 @@ end
 
 unless @board.solved?
 	@board = guess_solve @board
+	raise "invalid board solution" unless @board.is_valid?
 end
 
 if ARGV[1] == 'full'
@@ -44,7 +45,5 @@ if ARGV[1] == 'full'
 else
 	@board.print_compact
 end
-
-raise "invalid board solution" unless @board.is_valid?
 
 puts "took #{Time.now - time_started} seconds" if ARGV[1] == 'full'
