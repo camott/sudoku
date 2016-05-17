@@ -33,11 +33,19 @@ There were also some small changes I could have made to improve the runtime comp
 
 Sample run:
 ruby solve.rb "-,-,-,8,4,-,-,-,9
+
 -,-,1,-,-,-,-,-,5
+
 8,-,-,-,2,1,4,6,-
+
 7,-,8,-,-,-,-,9,-
+
 -,-,-,-,-,-,-,-,-
+
 -,5,-,-,-,-,3,-,1
+
 -,2,4,9,1,-,-,-,7
+
 9,-,-,-,-,-,5,-,-
+
 3,-,-,-,8,4,-,-,-"
