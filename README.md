@@ -16,8 +16,8 @@ Best case scenario – O(m) + O(1) + O(1) = O(m)
 Average case – We perform the same actions as the best case scenario, but there are still some left unsolved.  In that case, we need to start making guesses. 
 Check if the board is valid & solved – O(1) since it involves iterating through all 81 cells (though each cell is touched multiple times).
 Determining the cell to guess – O(81 + m log m) Iterate through every cell to determine the unsolved ones, then sort the unsolved ones. Reduces to O(m log m)
-Make guess – There are 9^m potential options to explore.  We attempt to improve our chances by reducing the number of potentials in each cell and choosing cells with fewer possibilities so we are more likely to be right.  However, it’s still possible that we go down every bad path.  I’m not entirely sure how to include the optimizations in the running time.
-Average Case – O(1) + O(9^m(m log m))
+Make guess – There are 9^m potential options to explore.  Each time we explore an option, we potentially iterate through every unsolved cell 8 times removing possiblities. We attempt to improve our chances by reducing the number of potentials in each cell and choosing cells with fewer possibilities so we are more likely to be right.  Also, every time we make a guess, we eliminate up to 20 potential paths in since none of the neighboring cells can contain that same number.  I’m not entirely sure how to include the optimizations in the running time.
+Average Case – O(1) + O(9^m(m log m + m)) = O(9^m(m log m )+ 9^m(m)) = O(9^m(m log m))
 
 Worst case scenario – We don’t know any of the values, which would leave 9^81 options.  The worst case would be that the last tested of the 9^81 options is the correct one. That’s technically constant time, but it would be awful in reality.
 
